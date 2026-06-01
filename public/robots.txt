@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://peifengmold.com/sitemap.xml
