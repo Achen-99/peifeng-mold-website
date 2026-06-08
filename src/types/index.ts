@@ -70,3 +70,9 @@ export interface Testimonial {
   quote: string;
   avatarUrl?: string;
 }
+
+export interface HomepageVideo {
+  url: string;
+  platform: "youtube" | "direct";
+  poster?: string;
+}

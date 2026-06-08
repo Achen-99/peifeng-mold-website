@@ -1,6 +1,6 @@
 // Peifeng Precision Mold — Company constants and configuration
 
-import type { NavItem, Testimonial } from '@/types';
+import type { HomepageVideo, NavItem, Testimonial } from '@/types';
 
 // ============================================================
 // Company Information
@@ -18,6 +18,17 @@ export const COMPANY = {
   address: 'Shenzhen, Guangdong, China',
   foundedYear: 2015,
 } as const;
+
+// ============================================================
+// Homepage Video
+// ============================================================
+// Set url to empty string to show placeholder.
+// For YouTube: { url: "VIDEO_ID", platform: "youtube" }
+// For direct file: { url: "/your-video.mp4", platform: "direct", poster: "/poster.jpg" }
+export const HOMEPAGE_VIDEO: HomepageVideo = {
+  url: '',
+  platform: 'youtube',
+};
 
 // ============================================================
 // Navigation
