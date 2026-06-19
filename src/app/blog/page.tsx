@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Button } from "@/components/shared/Button";
+import { getAllBlogPosts } from "@/content/blog";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,34 +9,9 @@ export const metadata: Metadata = {
     "Expert guides on injection mold sourcing, steel selection, DFM tips, and importing molds from China. Written for manufacturing professionals.",
 };
 
-const ARTICLES = [
-  {
-    title: "How to Import Injection Molds from China: A Complete Guide (2026)",
-    description:
-      "Everything you need to know about sourcing injection molds from China — from finding suppliers to quality inspection and shipping.",
-    category: "Sourcing",
-    slug: "import-injection-molds-from-china",
-    date: "Coming Soon",
-    readTime: "12 min read",
-  },
-  {
-    title: "Injection Mold Cost Breakdown: What You Actually Pay For",
-    description:
-      "Understand the factors that drive mold cost — steel, cavitation, complexity, and more. Real price ranges and budgeting advice.",
-    category: "Engineering",
-    slug: "injection-mold-cost-breakdown",
-    date: "Coming Soon",
-    readTime: "8 min read",
-  },
-  {
-    title: "Mold Steel Selection Guide: P20 vs 718H vs NAK80 vs S136",
-    description:
-      "How to choose the right steel for your injection mold based on production volume, material, and surface finish requirements.",
-    category: "Engineering",
-    slug: "mold-steel-selection-guide",
-    date: "Coming Soon",
-    readTime: "10 min read",
-  },
+const PUBLISHED = getAllBlogPosts();
+
+const COMING_SOON = [
   {
     title: "Mold Base Standards: HASCO, DME, LKM, MISUMI Explained",
     description:
@@ -70,12 +47,12 @@ export default function BlogPage() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {ARTICLES.map((article) => (
+            {PUBLISHED.map((article) => (
               <article
                 key={article.slug}
                 className="group rounded-xl border border-gray-100 bg-white shadow-sm transition-shadow hover:shadow-md overflow-hidden"
               >
-                <div className="p-6">
+                <Link href={`/blog/${article.slug}`} className="block p-6 cursor-pointer">
                   <div className="mb-3 flex items-center gap-3">
                     <span className="rounded-full bg-surface px-2.5 py-0.5 text-xs font-medium text-accent">
                       {article.category}
@@ -89,10 +66,35 @@ export default function BlogPage() {
                     {article.description}
                   </p>
                   <div className="mt-4 flex items-center justify-between">
-                    <span className="text-xs text-steel-light">{article.date}</span>
+                    <time className="text-xs text-steel-light" dateTime={article.date}>{article.date}</time>
                     <span className="text-sm font-medium text-accent opacity-0 group-hover:opacity-100 transition-opacity">
                       Read more &rarr;
                     </span>
+                  </div>
+                </Link>
+              </article>
+            ))}
+
+            {COMING_SOON.map((article) => (
+              <article
+                key={article.slug}
+                className="rounded-xl border border-gray-100 bg-surface shadow-sm overflow-hidden opacity-60"
+              >
+                <div className="p-6">
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="rounded-full bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-steel-light">
+                      {article.category}
+                    </span>
+                    <span className="text-xs text-steel-light">{article.readTime}</span>
+                  </div>
+                  <h2 className="text-lg font-semibold text-steel">
+                    {article.title}
+                  </h2>
+                  <p className="mt-2 text-sm text-steel-light leading-relaxed">
+                    {article.description}
+                  </p>
+                  <div className="mt-4">
+                    <span className="text-xs text-steel-light">{article.date}</span>
                   </div>
                 </div>
               </article>
