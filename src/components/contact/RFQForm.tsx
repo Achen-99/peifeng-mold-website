@@ -67,35 +67,41 @@ export function RFQForm() {
     setErrorMessage("");
 
     try {
-      // For MVP: log to console and simulate success
-      // Phase 2: connect to UploadThing + Resend API route
-      console.log("RFQ Submission:", data);
-      console.log("Files:", files.map((f) => f.name));
+      // Build FormData for API call
+      const formData = new FormData();
+      formData.append("fullName", data.fullName);
+      formData.append("companyName", data.companyName);
+      formData.append("workEmail", data.workEmail);
+      if (data.phone) formData.append("phone", data.phone);
+      formData.append("country", data.country);
+      formData.append("moldTypes", JSON.stringify(data.moldTypes));
+      formData.append("partDescription", data.partDescription);
+      if (data.annualVolume) formData.append("annualVolume", data.annualVolume);
+      if (data.moldLife) formData.append("moldLife", data.moldLife);
+      if (data.timeline) formData.append("timeline", data.timeline);
+      if (data.additionalNotes) formData.append("additionalNotes", data.additionalNotes);
+      files.forEach((file) => formData.append("files", file));
 
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const res = await fetch("/api/rfq", {
+        method: "POST",
+        body: formData,
+      });
 
-      // In production, replace with real API call:
-      // const formData = new FormData();
-      // Object.entries(data).forEach(([key, value]) => {
-      //   if (Array.isArray(value)) {
-      //     formData.append(key, JSON.stringify(value));
-      //   } else if (value) {
-      //     formData.append(key, value);
-      //   }
-      // });
-      // files.forEach((file) => formData.append("files", file));
-      // const res = await fetch("/api/rfq", { method: "POST", body: formData });
-      // if (!res.ok) throw new Error("Submission failed");
+      if (!res.ok) {
+        const json = await res.json().catch(() => null);
+        throw new Error(json?.message || "Submission failed");
+      }
 
       setSubmitState("success");
       reset();
       setFiles([]);
       router.push("/thank-you");
-    } catch {
+    } catch (err) {
       setSubmitState("error");
       setErrorMessage(
-        "Something went wrong. Please try again or email us directly at info@peifengmold.com."
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again or email us directly at info@peifengmold.com."
       );
     }
   };
@@ -356,7 +362,7 @@ export function RFQForm() {
               Submitting...
             </span>
           ) : (
-            "Submit Your Mold Inquiry &rarr;"
+            "Submit Your Mold Inquiry →"
           )}
         </button>
 

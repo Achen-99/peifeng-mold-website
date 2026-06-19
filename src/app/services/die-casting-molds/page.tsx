@@ -1,6 +1,7 @@
-import { SectionHeading } from "@/components/shared/SectionHeading";
+﻿import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/shared/Button";
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/components/shared/ServiceJsonLd";
 
 export const metadata: Metadata = {
   title: "Die-Casting Molds — Factory Manufacturing",
@@ -31,6 +32,7 @@ const QC_ITEMS = [
 export default function DieCastingMoldsPage() {
   return (
     <>
+        <ServiceJsonLd name="Die-Casting Mold Engineering" description="High-pressure die-casting molds for aluminum, zinc, and magnesium alloys. In-house design review, manufacturing by audited partners." url="https://www.peifengmold.com/services/die-casting-molds" />
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400">

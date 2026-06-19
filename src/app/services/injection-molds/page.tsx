@@ -1,5 +1,6 @@
-import { SectionHeading } from "@/components/shared/SectionHeading";
+﻿import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/shared/Button";
+import { ServiceJsonLd } from "@/components/shared/ServiceJsonLd";
 import { STEEL_TYPES } from "@/lib/constants";
 import type { Metadata } from "next";
 
@@ -41,6 +42,7 @@ const APPLICATIONS = [
 export default function InjectionMoldsPage() {
   return (
     <>
+        <ServiceJsonLd name="Injection Mold Engineering" description="Precision injection molds for thermoplastics. In-house DFM and QC, manufacturing by specialized partners. Single to multi-cavity, cold and hot runner systems." url="https://www.peifengmold.com/services/injection-molds" />
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400">

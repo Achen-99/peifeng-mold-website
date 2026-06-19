@@ -1,6 +1,7 @@
-import { SectionHeading } from "@/components/shared/SectionHeading";
+﻿import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/shared/Button";
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/components/shared/ServiceJsonLd";
 
 export const metadata: Metadata = {
   title: "Blow Molds — Factory Manufacturing",
@@ -20,6 +21,7 @@ const SPECS = [
 export default function BlowMoldsPage() {
   return (
     <>
+        <ServiceJsonLd name="Blow Mold Engineering" description="Extrusion and injection blow molds for bottles, containers, and hollow parts. Manufacturing by audited factory partners." url="https://www.peifengmold.com/services/blow-molds" />
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400">

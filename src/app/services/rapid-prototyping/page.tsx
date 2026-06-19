@@ -1,6 +1,7 @@
-import { SectionHeading } from "@/components/shared/SectionHeading";
+﻿import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Button } from "@/components/shared/Button";
 import type { Metadata } from "next";
+import { ServiceJsonLd } from "@/components/shared/ServiceJsonLd";
 
 export const metadata: Metadata = {
   title: "Rapid Tooling & Prototype Molds — Fast Turnaround",
@@ -20,6 +21,7 @@ const SPECS = [
 export default function RapidPrototypingPage() {
   return (
     <>
+        <ServiceJsonLd name="Rapid Tooling & Prototype Molds" description="Fast-turnaround prototype molds for design validation and low-volume production. Sample parts in as little as 2 weeks." url="https://www.peifengmold.com/services/rapid-prototyping" />
       <section className="bg-gradient-to-br from-primary to-primary-dark py-20 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-400">

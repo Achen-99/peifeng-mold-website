@@ -1,46 +1,60 @@
 import { NextResponse } from "next/server";
+import { sendRFQNotification, sendCustomerConfirmation } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
-    // Parse form data
     const formData = await request.formData();
 
     // Extract text fields
-    const fullName = formData.get("fullName") as string;
-    const companyName = formData.get("companyName") as string;
-    const workEmail = formData.get("workEmail") as string;
-    const phone = formData.get("phone") as string;
-    const country = formData.get("country") as string;
-    const moldTypes = formData.get("moldTypes") as string;
-    const partDescription = formData.get("partDescription") as string;
-    const annualVolume = formData.get("annualVolume") as string;
-    const moldLife = formData.get("moldLife") as string;
-    const timeline = formData.get("timeline") as string;
-    const additionalNotes = formData.get("additionalNotes") as string;
+    const fullName = (formData.get("fullName") as string) || "";
+    const companyName = (formData.get("companyName") as string) || "";
+    const workEmail = (formData.get("workEmail") as string) || "";
+    const phone = (formData.get("phone") as string) || undefined;
+    const country = (formData.get("country") as string) || "";
+    const moldTypesRaw = (formData.get("moldTypes") as string) || "";
+    const partDescription = (formData.get("partDescription") as string) || "";
+    const annualVolume = (formData.get("annualVolume") as string) || undefined;
+    const moldLife = (formData.get("moldLife") as string) || undefined;
+    const timeline = (formData.get("timeline") as string) || undefined;
+    const additionalNotes = (formData.get("additionalNotes") as string) || undefined;
 
-    // Extract files
+    // Parse moldTypes (sent as JSON string from frontend)
+    let moldTypes: string[] = [];
+    try {
+      moldTypes = JSON.parse(moldTypesRaw);
+    } catch {
+      moldTypes = moldTypesRaw ? [moldTypesRaw] : [];
+    }
+
+    // Extract files metadata
     const files: { name: string; size: number }[] = [];
-    for (const [key, value] of formData.entries()) {
+    for (const [, value] of formData.entries()) {
       if (value instanceof File) {
         files.push({ name: value.name, size: value.size });
       }
     }
 
-    // Log for MVP — replace with UploadThing + Resend in production
-    console.log("=== RFQ Submission ===");
-    console.log("Name:", fullName);
-    console.log("Company:", companyName);
-    console.log("Email:", workEmail);
-    console.log("Phone:", phone);
-    console.log("Country:", country);
-    console.log("Mold Types:", moldTypes);
-    console.log("Part:", partDescription);
-    console.log("Volume:", annualVolume);
-    console.log("Mold Life:", moldLife);
-    console.log("Timeline:", timeline);
-    console.log("Notes:", additionalNotes);
-    console.log("Files:", files.map((f) => `${f.name} (${f.size} bytes)`).join(", "));
-    console.log("======================");
+    // Send notification email to Peifeng team
+    await sendRFQNotification({
+      fullName,
+      companyName,
+      workEmail,
+      phone,
+      country,
+      moldTypes,
+      partDescription,
+      annualVolume,
+      moldLife,
+      timeline,
+      additionalNotes,
+      files,
+    });
+
+    // Send auto-confirmation to the customer
+    await sendCustomerConfirmation({
+      fullName,
+      workEmail,
+    });
 
     return NextResponse.json({
       success: true,
@@ -49,12 +63,15 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("RFQ submission error:", error);
     return NextResponse.json(
-      { success: false, message: "Internal server error. Please try again or email us directly." },
+      {
+        success: false,
+        message:
+          "Internal server error. Please try again or email us directly at info@peifengmold.com.",
+      },
       { status: 500 }
     );
   }
 }
 
-// Set max body size for file uploads (100 MB)
-export const maxDuration = 30; // 30 seconds
+export const maxDuration = 30;
 export const dynamic = "force-dynamic";
