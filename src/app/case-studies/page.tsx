@@ -1,22 +1,15 @@
-import { SectionHeading } from "@/components/shared/SectionHeading";
+import Link from "next/link";
 import { Button } from "@/components/shared/Button";
+import { getAllCaseStudies } from "@/content/case-studies";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Studies",
+  title: "Case Studies — Real Mold Projects Delivered",
   description:
-    "Real mold projects we have delivered. From 48-cavity connector molds to 2,000-ton automotive tools — see the quality we deliver.",
+    "See real injection, die-casting, and blow mold projects we have delivered for customers worldwide. Engineering specs, results, and customer feedback.",
 };
 
-const CASE_STUDIES = [
-  {
-    title: "Coming Soon",
-    summary:
-      "We are documenting our best projects. Check back soon to see real examples of molds we have sourced and delivered for customers worldwide.",
-    industry: "Various",
-    country: "Global",
-  },
-];
+const STUDIES = getAllCaseStudies();
 
 export default function CaseStudiesPage() {
   return (
@@ -25,27 +18,55 @@ export default function CaseStudiesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Case Studies</h1>
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
-            Real mold projects. Real results. See how we help manufacturers worldwide get the molds they need.
+            Real mold projects. Real results. See how we help manufacturers worldwide get quality molds at competitive pricing.
           </p>
         </div>
       </section>
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            title="Our Projects"
-            description="Case studies with photos, specifications, and project outcomes are coming soon. In the meantime, contact us to discuss your project."
-          />
-
-          <div className="mx-auto max-w-xl rounded-xl border border-dashed border-gray-300 bg-surface p-12 text-center">
-            <svg className="mx-auto h-12 w-12 text-steel-light" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-            </svg>
-            <p className="mt-4 text-steel">Case studies being prepared. Contact us for recent project examples.</p>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {STUDIES.map((cs) => (
+              <Link
+                key={cs.slug}
+                href={`/case-studies/${cs.slug}`}
+                className="group rounded-xl border border-gray-100 bg-white p-8 shadow-sm transition-shadow hover:shadow-lg"
+              >
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+                    {cs.industry}
+                  </span>
+                  <span className="text-xs text-steel-light">{cs.moldType.split("—")[0].trim()}</span>
+                </div>
+                <h2 className="text-lg font-semibold text-primary group-hover:text-accent transition-colors">
+                  {cs.title}
+                </h2>
+                <p className="mt-2 text-sm text-steel">{cs.client}</p>
+                <div className="mt-4 space-y-1 text-xs text-steel-light">
+                  <p>Steel: {cs.steel}</p>
+                  <p>Cavitation: {cs.cavitation}</p>
+                  <p>Lead time: {cs.leadTime}</p>
+                </div>
+                <p className="mt-3 text-sm font-semibold text-accent">{cs.result.split(".")[0]}.</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                  View case study &rarr;
+                </span>
+              </Link>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-12 text-center">
-            <Button href="/contact">Discuss Your Project &rarr;</Button>
+      <section className="bg-primary py-20 text-center">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Your Project Could Be Next
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">
+            Every project starts with a free DFM review. Send us your CAD file and see what we can do.
+          </p>
+          <div className="mt-8">
+            <Button href="/contact">Start Your Project &rarr;</Button>
           </div>
         </div>
       </section>
