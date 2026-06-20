@@ -219,6 +219,114 @@ export const BLOG_POSTS: Record<string, BlogPost> = {
 <h2>Get Steel Engineering Support</h2>
 <p>Not sure which steel fits your part? <a href="/contact">Send us your CAD file or material spec</a>. Our engineers recommend the right steel and provide a free DFM review with every quote. We verify every steel batch with a spectrometer at incoming inspection — you get a copy of the report.</p>`,
   },
+
+  "mold-base-standards-explained": {
+    slug: "mold-base-standards-explained",
+    title: "Mold Base Standards Explained: HASCO, DME, LKM, MISUMI",
+    description:
+      "A practical comparison of global mold base standards. Which one fits your market, budget, and maintenance requirements.",
+    category: "Engineering",
+    date: "2026-06-18",
+    readTime: "7 min read",
+    content: `<p>Your mold base standard determines spare part availability, maintenance compatibility, and cost. Choose the wrong one and you are stuck importing custom components from the other side of the world. This guide compares the four most common standards and tells you which one is right for your application.</p>
+
+<h2>HASCO — The European Standard</h2>
+<p><strong>Region:</strong> Germany, Austria, Switzerland, EU | <strong>Units:</strong> Metric | <strong>Cost:</strong> $$$</p>
+<p>HASCO is the dominant standard in Europe. If your molding facility is in Germany or anywhere in the EU, specify HASCO. Components are available off the shelf from distributors across Europe — your maintenance team can replace ejector pins, guide bushings, or hot runner components within 24 hours. HASCO molds use metric dimensions throughout and offer the widest catalog of standardized components.</p>
+<p><strong>Best for:</strong> EU-based molders. German automotive and industrial customers expect HASCO.</p>
+
+<h2>DME — The North American Standard</h2>
+<p><strong>Region:</strong> USA, Canada, Mexico | <strong>Units:</strong> Inch (metric available) | <strong>Cost:</strong> $$$</p>
+<p>DME is the standard for the North American market. If your mold will run in Ohio or Ontario, specify DME. The key advantage is component availability: every mold component distributor in North America stocks DME. DME offers both inch and metric dimensions. For molds exported from China to the US, DME is the most common specification because it matches the molding facility's existing inventory of spare parts.</p>
+<p><strong>Best for:</strong> US/Canada-based molders. Automotive and consumer goods destined for North American production.</p>
+
+<h2>LKM — The Cost-Effective Asian Standard</h2>
+<p><strong>Region:</strong> China, Southeast Asia, global cost-sensitive applications | <strong>Units:</strong> Metric | <strong>Cost:</strong> $</p>
+<p>LKM (Long Kong Mold) is the most commonly used standard in China and offers the lowest cost. For applications where component interchangeability with European or US standards is not required, LKM provides significant savings — typically 20-30% less than HASCO or DME for the equivalent mold base. LKM components are widely available throughout Asia. Many global customers choose LKM for molds used in their own Asian operations, then specify HASCO or DME for molds shipped to EU or US facilities.</p>
+<p><strong>Best for:</strong> Cost-sensitive projects. Molds running in Asian facilities. Low-to-medium volume production where premium component availability is less critical.</p>
+
+<h2>MISUMI — The Precision Japanese Standard</h2>
+<p><strong>Region:</strong> Japan, South Korea, global precision applications | <strong>Units:</strong> Metric | <strong>Cost:</strong> $$$$</p>
+<p>MISUMI is the go-to standard for precision molds, particularly in the electronics and medical device industries. MISUMI components are manufactured to tighter tolerances than equivalent LKM or DME parts, and the catalog is extensive — you can configure custom ejector sleeves, date stamps, and slide cores online and they ship globally within days. The trade-off is cost: MISUMI is typically the most expensive standard, but for projects where micron-level precision matters, it is worth it.</p>
+<p><strong>Best for:</strong> Japanese and Korean molders. Precision electronics, connectors, medical devices. Any project where component accuracy is the primary concern.</p>
+
+<h2>Quick Comparison</h2>
+<table>
+<tr><th>Standard</th><th>Region</th><th>Units</th><th>Cost</th><th>Best For</th></tr>
+<tr><td>HASCO</td><td>Europe</td><td>Metric</td><td>$$$</td><td>German/EU molders, automotive</td></tr>
+<tr><td>DME</td><td>North America</td><td>Inch + Metric</td><td>$$$</td><td>US/Canada molders</td></tr>
+<tr><td>LKM</td><td>Asia / Global</td><td>Metric</td><td>$</td><td>Cost-sensitive, Asian production</td></tr>
+<tr><td>MISUMI</td><td>Japan / Precision</td><td>Metric</td><td>$$$$</td><td>Electronics, medical, precision</td></tr>
+</table>
+
+<h2>What Happens If You Pick the Wrong Standard?</h2>
+<ul>
+<li><strong>DME mold shipped to a HASCO molder in Germany:</strong> Ejector pin breaks, local distributor does not stock DME pins, 2-week lead time from US, production line down.</li>
+<li><strong>HASCO mold running in China on an LKM press:</strong> Guide pillar dimensions mismatch, needs adapter plate, extra $500-1,000 and one week of delay.</li>
+<li><strong>No standard specified in PO:</strong> Supplier defaults to LKM (cheapest). Mold arrives, does not fit your DME-compatible press. Rework or remake required.</li>
+</ul>
+
+<h2>Our Recommendation</h2>
+<p>Match the standard to where the mold will run. If your molder is in Germany, specify HASCO. In the US, DME. If cost is the priority and you are flexible on component sourcing, LKM is a valid choice — just confirm your molder can support it. We build to all four standards and will confirm the specification in your quotation.</p>
+
+<p><a href="/contact">Request a quote</a> with your mold base standard preference. Free DFM review included.</p>`,
+  },
+
+  "questions-to-ask-mold-supplier": {
+    slug: "questions-to-ask-mold-supplier",
+    title: "10 Questions to Ask Your China Mold Supplier Before Placing an Order",
+    description:
+      "The checklist that saves you from expensive mistakes. What to ask about quality, lead time, payment terms, steel verification, and after-sales support.",
+    category: "Sourcing",
+    date: "2026-06-20",
+    readTime: "6 min read",
+    content: `<p>Ordering a mold from China saves 30-60% versus domestic suppliers. But not asking the right questions up front can turn those savings into expensive rework. Here are the 10 questions that separate reliable suppliers from risky ones.</p>
+
+<h2>1. "Who does your DFM review — an engineer or a salesperson?"</h2>
+<p>A real DFM (Design for Manufacturability) review is done by an experienced mold engineer who can spot draft angle problems, wall thickness issues, and gate location conflicts. A salesperson clicking "approve" on a CAD viewer is not a DFM review. Ask for the DFM report before steel is cut. If the supplier cannot produce one, walk away.</p>
+<p><strong>Good answer:</strong> "Our senior engineer with 15 years of mold design experience will review your file and provide a written DFM report within 24 hours. We typically find 3-7 issues per project."</p>
+
+<h2>2. "Can you provide a spectrometer report for the steel before machining?"</h2>
+<p>Some low-cost suppliers substitute lower-grade steel — P20 instead of 718H, or non-branded steel instead of Assab/Bohler. A spectrometer report at incoming inspection verifies the actual chemical composition matches the specified grade. This is a non-negotiable quality gate. If they cannot do it, they either do not care about quality or they know their steel source is questionable.</p>
+
+<h2>3. "What mold base standard do you use? Can you confirm it in the PO?"</h2>
+<p>Your mold base should match your molder's standard: HASCO for Europe, DME for North America, LKM or MISUMI for Asia. Get it written into the purchase order. If the supplier answers "standard mold base" without specifying which standard, they may default to whatever is cheapest.</p>
+
+<h2>4. "How many QC inspection gates do you have during manufacturing?"</h2>
+<p>Minimum four: incoming steel, in-process (at each machining milestone), mold trial (T0 samples with CMM report), and final pre-shipment. Less than four means gaps where defects go undetected.</p>
+
+<h2>5. "Will I receive weekly progress updates with photos?"</h2>
+<p>You should receive photos or a short video of your mold at each manufacturing stage: roughing complete, finishing complete, EDM complete, polishing complete, assembly, and trial. If the supplier is vague about updates, they are either disorganized or hiding something.</p>
+
+<h2>6. "What is your payment structure?"</h2>
+<p>Standard terms: 50% deposit to start, 50% before shipping — after you have reviewed and approved photos, video, sample parts, and the CMM report. Never pay 100% upfront. If a supplier demands full payment before manufacturing, they have no incentive to deliver quality.</p>
+
+<h2>7. "Can I visit the manufacturing facility?"</h2>
+<p>Even if you do not plan to visit, the willingness to host you is a litmus test. A legitimate supplier will say yes and help arrange the visit. A supplier that refuses or makes excuses may not actually have the factory they claim, or may be hiding poor conditions.</p>
+
+<h2>8. "What happens if the mold does not meet agreed specifications?"</h2>
+<p>A professional supplier has a clear warranty: corrections at their cost if the mold fails to meet the specifications in the PO. A vague or defensive answer is a red flag. Get the warranty terms in writing — duration, shot count limit, and what is covered.</p>
+
+<h2>9. "Can you provide references from customers in my industry?"</h2>
+<p>A supplier that has successfully delivered molds for automotive, medical, or industrial customers in your target market will have references. They may be anonymized for confidentiality, but the supplier should be able to describe similar projects and outcomes.</p>
+
+<h2>10. "How do you handle shipping and customs?"</h2>
+<p>The supplier should handle rust preventive treatment, vacuum sealing, reinforced export crating, export documentation, and freight. Door-to-door delivery should be available. You should receive tracking the day the mold ships. If they say "shipping is your responsibility," you will be dealing with freight forwarders and customs brokers yourself.</p>
+
+<h2>Red Flag Checklist</h2>
+<ul>
+<li>No DFM review, or DFM done by sales</li>
+<li>Cannot provide spectrometer report</li>
+<li>Won't specify mold base standard in PO</li>
+<li>Demands 100% payment upfront</li>
+<li>No warranty or vague warranty terms</li>
+<li>Refuses factory visit</li>
+<li>Cannot name their steel supplier</li>
+</ul>
+
+<h2>Try Asking Us</h2>
+<p><a href="/contact">Send us your project details</a>. We answer all 10 questions transparently — with a free DFM review included. Our customers receive spectrometer reports, weekly updates, and a CMM dimensional report before making final payment.</p>`,
+  },
 };
 
 export function getBlogPost(slug: string): BlogPost | null {

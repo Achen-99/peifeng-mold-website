@@ -20,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/blog/import-injection-molds-from-china", priority: 0.7 },
     { path: "/blog/injection-mold-cost-breakdown", priority: 0.7 },
     { path: "/blog/mold-steel-selection-guide", priority: 0.7 },
+    { path: "/blog/mold-base-standards-explained", priority: 0.7 },
+    { path: "/blog/questions-to-ask-mold-supplier", priority: 0.7 },
     { path: "/contact", priority: 0.9 },
     { path: "/about", priority: 0.6 },
     { path: "/faq", priority: 0.6 },

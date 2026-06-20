@@ -11,26 +11,7 @@ export const metadata: Metadata = {
 
 const PUBLISHED = getAllBlogPosts();
 
-const COMING_SOON = [
-  {
-    title: "Mold Base Standards: HASCO, DME, LKM, MISUMI Explained",
-    description:
-      "A clear comparison of global mold base standards. Which one is right for your market and application?",
-    category: "Engineering",
-    slug: "mold-base-standards-explained",
-    date: "Coming Soon",
-    readTime: "7 min read",
-  },
-  {
-    title: "10 Questions to Ask Your China Mold Supplier Before Placing an Order",
-    description:
-      "The checklist that saves you from expensive mistakes. What to ask about quality, lead time, payment terms, and after-sales support.",
-    category: "Sourcing",
-    slug: "questions-to-ask-mold-supplier",
-    date: "Coming Soon",
-    readTime: "6 min read",
-  },
-];
+const COMING_SOON: any[] = [];
 
 export default function BlogPage() {
   return (

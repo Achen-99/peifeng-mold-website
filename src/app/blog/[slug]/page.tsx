@@ -30,6 +30,8 @@ export async function generateStaticParams() {
     { slug: "import-injection-molds-from-china" },
     { slug: "injection-mold-cost-breakdown" },
     { slug: "mold-steel-selection-guide" },
+    { slug: "mold-base-standards-explained" },
+    { slug: "questions-to-ask-mold-supplier" },
   ];
 }
 
